@@ -230,3 +230,62 @@
     height: 80px;
     object-fit: cover;
   }
+
+
+
+
+
+@media (max-width: 900px) {
+  #navbar {
+    padding: 1rem 0 !important;
+  }
+
+  #navbar > div {
+    padding: 0 1rem !important;
+  }
+
+  #navbar > div > div {
+    gap: 1.5rem !important;
+  }
+
+  #navbar a {
+    font-size: 0.75rem !important;
+  }
+
+  #navbar .gold-border {
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+  }
+
+  #navbar .logo-mark {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #navbar {
+    padding: 0.8rem 0 !important;
+  }
+
+  #navbar > div {
+    padding: 0 0.8rem !important;
+  }
+
+  #navbar > div > div {
+    gap: 0.7rem !important;
+  }
+
+  #navbar a {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  #navbar .gold-border {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  #navbar .logo-mark {
+    font-size: 0.85rem !important;
+  }
+}
