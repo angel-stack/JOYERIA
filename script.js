@@ -1,7 +1,7 @@
 const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar.style.padding = '1rem 0';
+      navbar.classList.add('nav-glass');
     } else {
       navbar.classList.remove('nav-glass');
     }
@@ -62,3 +62,39 @@ if (document.readyState === "loading") {
 } else {
   crearBotonWhatsApp();
 }
+
+/*MEN MOVIL*/
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileOverlay = document.getElementById("mobileOverlay");
+const closeMobileMenu = document.getElementById("closeMobileMenu");
+
+function openMobileMenu() {
+  mobileMenu.classList.add("open");
+  mobileOverlay.classList.add("open");
+
+  document.body.classList.add("no-scroll");
+}
+
+function closeMobileMenuFunction() {
+  mobileMenu.classList.remove("open");
+  mobileOverlay.classList.remove("open");
+
+  document.body.classList.remove("no-scroll");
+}
+
+/*Abrir*/
+mobileMenuBtn.addEventListener("click", openMobileMenu);
+
+/*errar con X*/
+closeMobileMenu.addEventListener("click", closeMobileMenuFunction);
+
+/*Cerrar haciendo clic fuera*/
+mobileOverlay.addEventListener("click", closeMobileMenuFunction);
+
+/*Cerrar al seleccionar una opción*/
+const mobileLinks = document.querySelectorAll(".mobile-menu-links a");
+
+mobileLinks.forEach(link => {
+  link.addEventListener("click", closeMobileMenuFunction);
+});
