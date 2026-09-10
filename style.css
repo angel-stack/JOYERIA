@@ -107,7 +107,7 @@
     background: rgba(10, 10, 10, 0.9);
     border-bottom: 1px solid rgba(201, 169, 97, 0.2);
   }
-  
+
   .btn-gold {
     background: linear-gradient(135deg, #e5c98a 0%, #c9a961 100%);
     color: #0a0a0a;
@@ -231,11 +231,7 @@
     object-fit: cover;
   }
 
-
-
-
-
-@media (max-width: 900px) {
+/* Tablet */
   #navbar {
     padding: 1rem 0 !important;
   }
@@ -260,9 +256,10 @@
   #navbar .logo-mark {
     font-size: 1rem !important;
   }
-}
 
-@media (max-width: 600px) {
+
+/* Celular */
+
   #navbar {
     padding: 0.8rem 0 !important;
   }
@@ -288,4 +285,248 @@
   #navbar .logo-mark {
     font-size: 0.85rem !important;
   }
+
+  /*NAVBAR*/
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 0;
+  transition: all 0.5s ease;
+}
+
+.navbar-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/*LOGO*/
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+}
+
+.navbar-logo .gold-border {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo .logo-mark {
+  font-size: 1.25rem;
+}
+
+/*MEN DESKTOP*/
+.desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.desktop-menu a {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+/*BOTONMOVIL */
+.mobile-menu-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px;
+  z-index: 105;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a961;
+  transition: all 0.3s ease;
+}
+
+
+/*MENU LATERAL*/
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  max-width: 85vw;
+  height: 100vh;
+  background: rgba(10, 10, 10, 0.98);
+  border-right: 1px solid rgba(201, 169, 97, 0.25);
+  z-index: 110;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  padding: 6rem 2rem 2rem;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/*BOTON CERRAR*/
+.close-mobile-menu {
+  position: absolute;
+
+  top: 1.2rem;
+  right: 1.5rem;
+
+  background: transparent;
+  border: none;
+
+  color: #c9a961;
+
+  font-size: 2rem;
+
+  cursor: pointer;
+}
+
+/*LINKS*/
+.mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.8rem;
+}
+
+.mobile-menu-links a {
+  font-size: 0.95rem;
+
+  letter-spacing: 0.15em;
+
+  color: #f5f0e8;
+
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-links a:hover {
+  color: #c9a961;
+
+  padding-left: 8px;
+}
+
+/*OVERLAY*/
+
+.mobile-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: 109;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/*TABLET*/
+
+@media (max-width: 900px) {
+
+  #navbar {
+    padding: 1rem 0;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .desktop-menu {
+    gap: 1.5rem;
+  }
+
+  .desktop-menu a {
+    font-size: 0.75rem;
+  }
+
+  .navbar-logo .gold-border {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .navbar-logo .logo-mark {
+    font-size: 1rem;
+  }
+
+}
+
+/*CELULAR*/
+@media (max-width: 600px) {
+
+  #navbar {
+    padding: 0.8rem 0;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+    justify-content: center;
+  }
+
+  /*cultar menu desktop*/
+
+  .desktop-menu {
+    display: none;
+  }
+
+  /*ocultar espacio derecho*/
+
+  .navbar-right {
+    display: none;
+  }
+
+  /*hamburguesa*/
+  .mobile-menu-btn {
+    display: flex;
+
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /*logo*/
+  .navbar-logo .gold-border {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .navbar-logo .logo-mark {
+    font-size: 1rem;
+  }
+
 }
