@@ -107,22 +107,29 @@
 
         <!-- CATEGORÍA -->
         <select id="categoryFilter">
-          <option value="all">Todos los tonos y metales</option>
+          <option value="all">Todos los tipos y metales</option>
+          <option value="tejida">Tejida</option>
+          <option value="pulso">Pulsos</option>
+          <option value="aro">Aros</option>
           <option value="oro amarillo">Oro amarillo</option>
           <option value="oro blanco">Oro blanco</option>
           <option value="oro rosa">Oro rosa</option>
           <option value="tres oros">Tres oros</option>
-          <option value="nacional">Oro nacional</option>
         </select>
 
         <!-- PRECIO -->
         <select id="priceFilter">
             <option value="all">Todos los precios</option>
-          <option value="250000">Hasta $250.000</option>
           <option value="500000">Hasta $500.000</option>
           <option value="1000000">Hasta $1.000.000</option>
           <option value="2000000">Hasta $2.000.000</option>
-          <option value="5000000">Hasta $5.000.000</option>
+          <option value="4000000">Hasta $4.000.000</option>
+          <option value="6000000">Hasta $6.000.000</option>
+          <option value="8000000">Hasta $8.000.000</option>
+          <optgroup label="Ordenar por precio">
+            <option value="sort-asc">Precio: menor a mayor</option>
+            <option value="sort-desc">Precio: mayor a menor</option>
+          </optgroup>
         </select>
 
         <select id="gridColumnsFilter" aria-label="Productos por fila">
