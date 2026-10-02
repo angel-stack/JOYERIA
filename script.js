@@ -369,6 +369,8 @@ const navbar = document.getElementById('navbar');
       const orderLines = cart.map(item => `- ${item.name} x${item.quantity}: ${formatPrice(item.price * item.quantity)}`);
       const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
       const message = `Hola, quiero hacer este pedido:\n${orderLines.join('\n')}\n\nTotal: ${formatPrice(total)}\n¿Me confirman disponibilidad y envío?`;
+      cart = [];
+      saveCart();
       window.location.href = `https://wa.me/573003715460?text=${encodeURIComponent(message)}`;
     });
 
