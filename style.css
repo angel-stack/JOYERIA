@@ -1301,6 +1301,10 @@
   line-height: 1.15;
 }
 
+.nosotros-story-grid > .home-collections-actions {
+  grid-column: 1 / -1;
+}
+
 .nosotros-value-title {
   margin-bottom: 0.5rem;
   color: var(--gold);
