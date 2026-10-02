@@ -43,6 +43,7 @@ const navbar = document.getElementById('navbar');
 
   const cartStorageKey = 'jr-joyeria-cart';
   const cartPriceAdjustmentKey = 'jr-joyeria-price-adjustment-1-5';
+  const checkoutPendingKey = 'jr-joyeria-checkout-pending';
   const toast = document.getElementById('toast');
   const toastMsg = document.getElementById('toastMsg');
   let cart = loadCart();
@@ -86,6 +87,17 @@ const navbar = document.getElementById('navbar');
       showToast('No se pudo guardar el carrito en este navegador.');
     }
     renderCart();
+  }
+
+  function clearCartAfterCheckoutReturn() {
+    try {
+      if (sessionStorage.getItem(checkoutPendingKey) !== 'true') return;
+      sessionStorage.removeItem(checkoutPendingKey);
+    } catch {
+      return;
+    }
+    cart = [];
+    saveCart();
   }
 
   function formatPrice(price) {
@@ -341,6 +353,10 @@ const navbar = document.getElementById('navbar');
   }
 
   function setupCartEvents() {
+    window.addEventListener('pageshow', clearCartAfterCheckoutReturn);
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') clearCartAfterCheckoutReturn();
+    });
     document.getElementById('jrCartToggle')?.addEventListener('click', openCart);
     document.getElementById('cartOverlay')?.addEventListener('click', closeCart);
     document.querySelector('.jr-cart-close')?.addEventListener('click', closeCart);
@@ -369,6 +385,9 @@ const navbar = document.getElementById('navbar');
       const orderLines = cart.map(item => `- ${item.name} x${item.quantity}: ${formatPrice(item.price * item.quantity)}`);
       const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
       const message = `Hola, quiero hacer este pedido:\n${orderLines.join('\n')}\n\nTotal: ${formatPrice(total)}\n¿Me confirman disponibilidad y envío?`;
+      try {
+        sessionStorage.setItem(checkoutPendingKey, 'true');
+      } catch {}
       cart = [];
       saveCart();
       window.location.href = `https://wa.me/573003715460?text=${encodeURIComponent(message)}`;
