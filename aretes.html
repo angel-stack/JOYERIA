@@ -107,14 +107,10 @@
 
         <!-- CATEGORÍA -->
         <select id="categoryFilter">
-          <option value="all">Todos los tipos y metales</option>
+          <option value="all">Todos los tipos</option>
           <option value="topo">Topos</option>
           <option value="candonga">Candongas</option>
-          <option value="aro">Aros</option>
           <option value="oro amarillo">Oro amarillo</option>
-          <option value="oro blanco">Oro blanco</option>
-          <option value="oro rosa">Oro rosa</option>
-          <option value="tres oros">Tres oros</option>
         </select>
 
         <!-- PRECIO -->
@@ -125,6 +121,11 @@
           <option value="1000000">Hasta $1.000.000</option>
           <option value="2000000">Hasta $2.000.000</option>
           <option value="4000000">Hasta $4.000.000</option>
+          <option value="6000000">Hasta $6.000.000</option>
+          <optgroup label="Ordenar por precio">
+            <option value="sort-asc">Precio: menor a mayor</option>
+            <option value="sort-desc">Precio: mayor a menor</option>
+          </optgroup>
         </select>
 
         <select id="gridColumnsFilter" aria-label="Productos por fila">
