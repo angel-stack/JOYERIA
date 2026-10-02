@@ -553,13 +553,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const categoryValue = normalizeText(categoryFilter.value);
 
-        const maxPrice = priceFilter.value === "all"
-            ? Infinity
-            : Number(priceFilter.value);
+        const selectedPriceFilter = priceFilter.value;
+        const maxPrice = /^\d+$/.test(selectedPriceFilter)
+          ? Number(selectedPriceFilter)
+          : Infinity;
+
+        const sortedProducts = [...products];
+        if (selectedPriceFilter === "sort-asc") {
+          sortedProducts.sort((first, second) => getProductPrice(first) - getProductPrice(second));
+        } else if (selectedPriceFilter === "sort-desc") {
+          sortedProducts.sort((first, second) => getProductPrice(second) - getProductPrice(first));
+        }
 
         let visibleProducts = 0;
 
-        products.forEach(product => {
+        sortedProducts.forEach(product => {
+          productGrid.insertBefore(product, noResults);
 
             const productText = normalizeText(product.textContent);
             // Permite buscar varias palabras:
